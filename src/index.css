@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --editorial-bg: #FDFDFB; /* Elegant warm off-white */
+  --editorial-charcoal: #1E1E1C; /* Classy off-black charcoal */
+  --editorial-accent: #D97706; /* Warm amber */
+  --editorial-card: #FFFFFF; /* Crisp white */
+  --editorial-border: #E6E4DD; /* Very delicate warm border */
+  --editorial-border-harsh: #1A1A1A;
+}
+
+:root.dark {
+  --editorial-bg: #11110F; /* Dark obsidian slate with warm undertones */
+  --editorial-charcoal: #F4EFE6; /* Elegant warm text */
+  --editorial-accent: #F59E0B; /* Vibrant golden accent */
+  --editorial-card: #191815; /* Classy warm dark card */
+  --editorial-border: #2E2C24; /* Soft dark border */
+  --editorial-border-harsh: #F4EFE6;
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Lora", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-display: "Lora", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-editorial-bg: var(--editorial-bg);
+  --color-editorial-charcoal: var(--editorial-charcoal);
+  --color-editorial-accent: var(--editorial-accent);
+  --color-editorial-card: var(--editorial-card);
+  --color-editorial-border: var(--editorial-border);
+  --color-editorial-border-harsh: var(--editorial-border-harsh);
+}
+
+/* Custom styles for animations and smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print Stylesheet for Premium PDF Generation */
+@media print {
+  /* Hide interactive web UI components */
+  body {
+    background-color: white !important;
+    color: black !important;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  /* Force print-specific elements to display */
+  .print-only {
+    display: block !important;
+  }
+
+  /* Printable container rules */
+  .print-container {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Page break rules */
+  .page-break-before {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .page-break-after {
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .page-break-avoid {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Force colors and background graphics for premium print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Format links nicely */
+  a:after {
+    content: " (" attr(href) ")";
+    font-size: 80%;
+  }
+
+  /* Clean up margins */
+  @page {
+    size: A4 portrait;
+    margin: 20mm 15mm 20mm 15mm;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
